@@ -1,0 +1,38 @@
+<style>
+    .title{
+        font-size: 3em;
+        font-weight: 1000px;
+        color: blue;
+        text-align: center;
+    }
+    .btn{
+        display: inline-block;
+        padding: .5em;
+        border: 1px solid;
+        border-radius: .5em;
+        font-size: 14px;
+        font-weight: bold;
+        color: red;
+    }
+    .sign-in{
+        border-color: green;
+        background-color: rgba(0, 128, 0, 0.9);
+    }
+    .register{
+        border-color: blue;
+        background-color: blue;
+    }
+</style>
+<h1 class="title">
+    ホームページ
+</h1>
+<% if user_signed_in? %>
+<%= current_user.email %>
+ <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+<span class="btn sign-in"><%= link_to "サインイン", new_user_session_path %></span>
+<span class="btn register"><%= link_to "ユーザー登録", new_user_registration_path %></span><br />
+
+<hr>
+<h2>本一覧を見る</h2>
+<% end %>
