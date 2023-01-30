@@ -3,7 +3,7 @@
         font-size: 3em;
         font-weight: 1000px;
         color: blue;
-        //text-align: center;
+        text-align: center;
     }
     .btn{
         display: inline-block;
@@ -30,13 +30,6 @@
 <h1 class="title">
     ホームページ
 </h1>
-<% if user_signed_in? %>
-<!-- <%= current_user.email %> -->
- <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-<% else %>
-<%= link_to "サインイン", new_user_session_path, :class => "btn sign-in" %>
-<%= link_to "ユーザー登録", new_user_registration_path, :class => "btn register" %><br />
-<% end %>
 
 <hr>
 <h2> <a href="/books">本一覧を見る</a></h2>

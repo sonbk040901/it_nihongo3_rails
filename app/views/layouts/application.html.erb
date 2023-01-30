@@ -8,15 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+<body>
     <a href='/'>HOME</a>
     <% if user_signed_in? %>
-        <p>こんにちは、<%= link_to current_user.email, users_show_path %></p>
+        <p>こんにちは、<%= link_to current_user.name, users_show_path %></p>
+        <!-- <%= link_to "Log out", destroy_user_session_path, method: 'delete' %> -->
+ <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
     <% else %>
-        <a href='/users/sign_in'>サインイン</a>
-        <a href='/users/sign_up'>ユーザー登録</a>
+<%= link_to "サインイン", new_user_session_path, :class => "btn sign-in" %>
+<%= link_to "ユーザー登録", new_user_registration_path, :class => "btn register" %><br />
     <% end %>
-    <hr>
-    <%= yield %>
+        <%= yield %>
   </body>
 </html>
