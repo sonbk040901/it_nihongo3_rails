@@ -2,3 +2,7 @@
 <p><label>Email address:</label> <%= current_user.email %></p>
 <p><label>Name</label> <%= current_user.name %></p>
 <p><label>Age</label> <%= current_user.age %></p>
+<% if current_user.avatar.attached? %>
+    <label>Avatar:</label>
+    <%= image_tag current_user.avatar, width: "200" %>
+<% end %>

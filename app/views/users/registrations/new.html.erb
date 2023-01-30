@@ -29,6 +29,10 @@
   <%= f.label :age %><br />
   <%= f.number_field :age %>
 </div>
+<div class="field" style="margin-bottom: 4px;">
+  <%= f.label :avatar, style: "display: block" %>
+  <%= f.file_field :avatar %>
+</div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
