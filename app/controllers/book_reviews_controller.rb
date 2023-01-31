@@ -23,9 +23,10 @@ class BookReviewsController < ApplicationController
   def create
     @book_review = BookReview.new(book_review_params)
     @book_review.user_id = current_user.id
-
+    
     respond_to do |format|
       if @book_review.save
+        url = "/books/" + @book_review.book_id.to_s
         format.html { redirect_to book_review_url(@book_review), notice: "Book review was successfully created." }
         format.json { render :show, status: :created, location: @book_review }
       else
