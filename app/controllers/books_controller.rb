@@ -58,7 +58,9 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def show
+      @book_review = BookReview.new
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
@@ -67,6 +69,6 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:title, :number_of_pages, :image, :detail)
+      params.require(:book).permit(:title, :number_of_pages)
     end
 end
